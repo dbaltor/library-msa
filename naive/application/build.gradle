@@ -1,0 +1,36 @@
+buildscript {
+	repositories { 
+		mavenCentral()
+	}
+	dependencies { 
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+	}
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+application {
+    mainClassName = 'library.LibraryApplication'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//	testImplementation 'com.github.javafaker:javafaker:1.0.2'
+	// https://github.com/DiUS/java-faker/issues/327
+	testImplementation ('com.github.javafaker:javafaker:1.0.2') { exclude module: 'org.yaml' }
+	testImplementation group: 'org.yaml', name: 'snakeyaml', version: '1.26'
+	
+    compileOnly "org.projectlombok:lombok"
+    annotationProcessor "org.projectlombok:lombok"
+    testCompileOnly "org.projectlombok:lombok"
+    testAnnotationProcessor "org.projectlombok:lombok"
+
+	test {
+  		useJUnitPlatform()
+	}
+	testImplementation 'junit:junit:4.13' 
+}

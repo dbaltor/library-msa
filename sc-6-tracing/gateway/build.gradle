@@ -1,0 +1,28 @@
+plugins {
+	id 'application'
+	id 'org.springframework.boot' version "${springBootVersion}"
+}
+apply plugin: 'io.spring.dependency-management'
+
+group = 'online.dbaltor'
+
+application {
+    mainClassName = 'gateway.LibraryGatewayApplication'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		// required by spring-cloud-services-starter-config-client
+		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:${cloudServicesDependencies}"
+	}
+}
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'io.pivotal.spring.cloud:spring-cloud-services-starter-config-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+	// Required since Spring Cloud 2020.*
+	// https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#config-first-bootstrap
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+}
