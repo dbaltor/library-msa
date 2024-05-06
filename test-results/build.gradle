@@ -1,0 +1,15 @@
+plugins {
+    id 'base'
+    id 'test-report-aggregation'
+}
+
+dependencies {
+    testReportAggregation project(':sc-6-tracing:application')
+    testReportAggregation project(':sc-6-tracing:book')
+    testReportAggregation project(':sc-6-tracing:reader')
+}
+
+reporting.baseDir = "./reports"
+test.finalizedBy('testAggregateTestReport')
+
+run.enabled = false

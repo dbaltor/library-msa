@@ -8,7 +8,6 @@ subprojects {
     version = '1.0.0'
     ext {
     }
-    
     apply plugin: 'application'
 
     applicationDefaultJvmArgs = ["--enable-preview"]
@@ -26,17 +25,10 @@ subprojects {
         // Use JUnit Jupiter for testing.
         testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     }
-
     // Disable the test report for the individual test task
     test {
-        reports.html.enabled = false
+        reports.html.required = false
     }
-}
-
-task testReport(type: TestReport) {
-    destinationDir = file("./reports/allTests")
-    // Include the results from the `test` task in all subprojects
-    reportOn subprojects*.test
 }
 
 configure(subprojects.findAll { it.name == 'application' || it.name == 'book' || it.name == 'reader' }) {
