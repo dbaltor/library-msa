@@ -28,7 +28,7 @@ import reader.domain.port.ReaderEntity.ReturningErrors;
 
 import com.github.javafaker.Faker;
 
-@SpringBootTest(classes = ReaderApplication.class)
+@SpringBootTest
 public abstract class ReaderBase {
     @Autowired ReaderServiceController readerServiceController;
 

@@ -1,6 +1,5 @@
 package book;
 
-//import book.adapter.controller.BookController;
 import book.usecase.port.BookService;
 import book.adapter.gateway.ReaderEntityGateway;
 import book.adapter.gateway.ReaderServiceGateway;
@@ -9,9 +8,9 @@ import book.usecase.port.BookRepository;
 import book.usecase.exception.BorrowingException;
 import book.usecase.exception.ReturningException;
 
-import org.junit.After;
-//import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -39,7 +38,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 @ActiveProfiles("test")
-@SpringBootTest(classes = BookApplication.class)
+@SpringBootTest
 @AutoConfigureMockMvc
 public class BookApplicationTest{
 
@@ -56,7 +55,7 @@ public class BookApplicationTest{
 
 	private static final int NUM_TEST_BOOKS = 20;
 
-	/*@Before
+	/*@BeforeEach
 	public void setUp() {
 		//RestAssuredMockMvc.webAppContextSetup(webApplicationContext);
 		//RestAssuredMockMvc.standaloneSetup(bookController);
@@ -80,7 +79,7 @@ public class BookApplicationTest{
 		//.thenReturn(Set.of());
 	}*/
 	
-    @After
+    @AfterEach
     public void teardown() {
 		// Delete all books
 		bookService.cleanUpDatabase();

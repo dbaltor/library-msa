@@ -39,10 +39,6 @@ dependencies {
 	//implementation 'org.springframework.boot:spring-boot-starter-aop' // required by resilience4j
 	////implementation "io.micrometer:micrometer-registry-prometheus" // may be used by resilience4j"
 	
-    test {
-  		useJUnitPlatform()
-	}
-	testImplementation 'junit:junit:4.13'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	// testImplementation 'com.github.javafaker:javafaker:1.0.2'

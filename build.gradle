@@ -1,6 +1,6 @@
 allprojects {
     repositories {
-        jcenter() 
+        mavenCentral()
     }
 }
 
@@ -14,11 +14,17 @@ subprojects {
     applicationDefaultJvmArgs = ["--enable-preview"]
 
     sourceCompatibility = "${javaVersion}"
+    targetCompatibility = "${javaVersion}"
 
     configurations {
         compileOnly {
             extendsFrom annotationProcessor
         }
+    }
+
+    dependencies {
+        // Use JUnit Jupiter for testing.
+        testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     }
 
     // Disable the test report for the individual test task
@@ -33,5 +39,9 @@ task testReport(type: TestReport) {
     reportOn subprojects*.test
 }
 
-//configure(subprojects.findAll { it.name == 'application' || it.name == 'book' || it.name == 'reader' }) {
-//}
+configure(subprojects.findAll { it.name == 'application' || it.name == 'book' || it.name == 'reader' }) {
+    tasks.named('test') {
+        // Use JUnit Platform for unit tests.
+        useJUnitPlatform()
+    }
+}

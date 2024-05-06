@@ -7,8 +7,8 @@ import book.usecase.port.BookRepository;
 import book.usecase.exception.BorrowingException;
 import book.usecase.exception.ReturningException;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -27,12 +27,10 @@ import lombok.val;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ActiveProfiles("test")
-@SpringBootTest(
-	classes = BookApplication.class,
-	webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @AutoConfigureStubRunner(
 		ids = "online.dbaltor:reader:1.0.0:stubs:8002",
@@ -48,7 +46,7 @@ public class BookApplicationTest{
 	private final Faker faker = new Faker();
 	private static final int NUM_TEST_BOOKS = 20;
 	
-    @After
+    @AfterEach
     public void teardown() {
 		// Delete all books
 		bookService.cleanUpDatabase();

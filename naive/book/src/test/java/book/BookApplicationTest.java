@@ -1,6 +1,5 @@
 package book;
 
-//import book.adapter.controller.BookController;
 import book.usecase.port.BookService;
 import book.adapter.gateway.ReaderEntityGateway;
 import book.adapter.gateway.ReaderServiceGateway;
@@ -9,24 +8,14 @@ import book.usecase.port.BookRepository;
 import book.usecase.exception.BorrowingException;
 import book.usecase.exception.ReturningException;
 
-import org.junit.After;
-//import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
-//import org.springframework.web.context.WebApplicationContext;
 import org.springframework.boot.test.mock.mockito.MockBean;
-//import static org.mockito.Mockito.*;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-//import org.springframework.test.web.servlet.MockMvc;
-//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-//import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-
-//import io.restassured.module.mockmvc.RestAssuredMockMvc;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,12 +26,12 @@ import com.github.javafaker.Faker;
 import lombok.val;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@RunWith(SpringRunner.class)
+
 @ActiveProfiles("test")
-@SpringBootTest(classes = BookApplication.class)
+@SpringBootTest
 @AutoConfigureMockMvc
 public class BookApplicationTest{
 
@@ -59,7 +48,7 @@ public class BookApplicationTest{
 
 	private static final int NUM_TEST_BOOKS = 20;
 
-	/*@Before
+	/*@BeforeEach
 	public void setUp() {
 		//RestAssuredMockMvc.webAppContextSetup(webApplicationContext);
 		//RestAssuredMockMvc.standaloneSetup(bookController);
@@ -83,7 +72,7 @@ public class BookApplicationTest{
 		//.thenReturn(Set.of());
 	}*/
 	
-    @After
+    @AfterEach
     public void teardown() {
 		// Delete all books
 		bookService.cleanUpDatabase();

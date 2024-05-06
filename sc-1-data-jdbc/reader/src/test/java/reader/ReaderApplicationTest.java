@@ -5,8 +5,8 @@ import reader.dto.Reader;
 import reader.usecase.port.ReaderRepository;
 import reader.adapter.gateway.BookServiceGateway;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -24,7 +24,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 @ActiveProfiles("test")
-@SpringBootTest(classes = ReaderApplication.class)
+@SpringBootTest
 @AutoConfigureMockMvc
 public class ReaderApplicationTest{
 
@@ -35,7 +35,7 @@ public class ReaderApplicationTest{
 	
 	private static final int NUM_TEST_READERS = 5;
 	
-    @After
+    @AfterEach
     public void teardown() {
 		// Delete all readers
 		readerService.cleanUpDatabase();

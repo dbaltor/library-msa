@@ -7,7 +7,7 @@ import library.adapter.controller.port.ReaderController;
 import library.dto.Book;
 import library.dto.Reader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -32,7 +32,7 @@ import lombok.val;
 import static org.hamcrest.Matchers.containsString;
 
 @ActiveProfiles("test")
-@SpringBootTest(classes = LibraryApplication.class)
+@SpringBootTest
 @AutoConfigureMockMvc
 public class LibraryApplicationTest{
 

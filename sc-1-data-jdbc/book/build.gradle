@@ -19,11 +19,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-	test {
-  		useJUnitPlatform()
-	}	
-	testImplementation 'junit:junit:4.13'
-
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testCompileOnly 'org.projectlombok:lombok'

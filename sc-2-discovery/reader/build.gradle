@@ -38,13 +38,8 @@ dependencies {
 	implementation 'io.github.resilience4j:resilience4j-timelimiter'
 	//implementation 'org.springframework.boot:spring-boot-starter-aop' // required by resilience4j
 	////implementation "io.micrometer:micrometer-registry-prometheus" // may be used by resilience4j"
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-        test {
-  		useJUnitPlatform()
-	}
-	testImplementation 'junit:junit:4.13'	
-
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testCompileOnly 'org.projectlombok:lombok'

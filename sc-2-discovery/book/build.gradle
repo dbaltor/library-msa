@@ -47,11 +47,6 @@ dependencies {
 	// includes com.sun.xml.bind:jaxb-osgi used by spring-mock-mvc
 	testImplementation 'io.rest-assured:xml-path:4.2.0'
 
-	test {
-  		useJUnitPlatform()
-	}
-	testImplementation 'junit:junit:4.13' 
-
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testCompileOnly 'org.projectlombok:lombok'

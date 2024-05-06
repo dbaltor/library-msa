@@ -25,7 +25,7 @@ import book.usecase.exception.ReturningException;
 
 import com.github.javafaker.Faker;
 
-@SpringBootTest(classes = BookApplication.class)
+@SpringBootTest
 public abstract class BookBase {
     @Autowired BookServiceController bookServiceController;
 

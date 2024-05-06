@@ -67,10 +67,6 @@ dependencies {
     
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	test {
-  		useJUnitPlatform()
-	}
-	testImplementation 'junit:junit:4.13'
 	testImplementation 'org.hamcrest:hamcrest:2.2'
 
     compileOnly 'org.projectlombok:lombok'

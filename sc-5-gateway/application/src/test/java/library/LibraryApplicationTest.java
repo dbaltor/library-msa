@@ -7,7 +7,7 @@ import library.adapter.controller.port.ReaderController;
 import library.adapter.gateway.BookServiceGateway;
 import library.adapter.gateway.ReaderServiceGateway;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,9 +36,7 @@ import java.util.Optional;
 import lombok.val;
 
 @ActiveProfiles("test")
-@SpringBootTest(
-	classes = LibraryApplication.class, 
-	webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @AutoConfigureStubRunner(
 		ids = {"online.dbaltor:book:1.0.0:stubs:8000", "online.dbaltor:reader:1.0.0:stubs:8001"},

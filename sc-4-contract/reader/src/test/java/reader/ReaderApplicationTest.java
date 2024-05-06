@@ -5,8 +5,8 @@ import reader.adapter.gateway.BookServiceGateway;
 import reader.dto.Reader;
 import reader.usecase.port.ReaderRepository;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -20,11 +20,11 @@ import java.util.Optional;
 import lombok.val;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ActiveProfiles("test")
-@SpringBootTest(classes = ReaderApplication.class)
+@SpringBootTest
 @AutoConfigureMockMvc
 public class ReaderApplicationTest{
 	@Autowired private ReaderService readerService;
@@ -34,7 +34,7 @@ public class ReaderApplicationTest{
 	
 	private static final int NUM_TEST_READERS = 5;
 
-    @After
+    @AfterEach
     public void teardown() {
 		// Delete all readers
 		readerService.cleanUpDatabase();
