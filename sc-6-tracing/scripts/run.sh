@@ -34,9 +34,12 @@ echo "The application and services are running in the background."
 echo "You can access the Library at http://localhost:8080"
 echo "You can access the config server at port 8888. For example:  http://localhost:8888/library-book-service/default"
 echo "You can access the registry server at http://localhost:8761"
-echo "You can access the API gateway at http://localhost:8181. For example: http post \"localhost:8181/library-reader-service/readers/commands/load?count=10\""
+echo "You can access the API gateway at http://localhost:8181"
+echo "For example, using httpie:"
+echo "http post \"localhost:8181/library-reader-service/readers/commands/load?count=10\""
+echo "http post \"localhost:8181/library-book-service/books/commands/load?count=100\""
 echo
-read -p "Press enter to finish all services"
+read -p "Press enter to stop all services"
 echo
 echo "Killing all processes"
 kill $CONFIGSERVER_PID

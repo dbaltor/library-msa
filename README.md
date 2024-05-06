@@ -3,8 +3,9 @@
 ![](./imgs/spring-cloud.png)  
   
 This repo contains a series of demos that aims to show how to build microservices using:  
-[Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) which implements DDD and hugely simplifies the persistence layer in comparison to JPA  
-[Spring Cloud](https://spring.io/projects/spring-cloud) projects:  
+[Spring Data JDBC](https://spring.io/projects/spring-data-jdbc) which implements DDD and hugely simplifies the persistence layer in comparison to JPA.  
+  
+[Spring Cloud](https://spring.io/projects/spring-cloud) projects used:  
 - **Spring Cloud Netflix** - service discovery
 - **Spring Cloud OpenFeign** - resilient communication
 - **Spring Cloud Config** - externalised configuration
@@ -25,7 +26,7 @@ All services have been configured to report trace data (spans) to a Zipkin serve
   
 ## Testing locally:
 If you have docker installed on your machine, you can easily run [Zipkin](https://zipkin.io/) and [Prometheus](https://prometheus.io/) in containers by simply executing `docker-compose up`  
-The build process requires that your machine have Maven installed as it is used by **Spring Cloud Contract**.  
+You need to have Java 17 installed. The build process uses the Gradle embedded in the repo, but your machine must also have Maven installed as it is used by **Spring Cloud Contract**.  
 Execute `./scripts/build.sh` to build everything.  
 Execute `./scripts/run.sh` to start everything up:  
 
