@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 set -eo pipefail
 
 cd $(dirname $0)
 cd ../..
 DIR='sc-6-tracing'
+
+mkdir logs
 
 echo "Starting Config Server..."
 java -jar $DIR/configserver/build/libs/configserver-1.0.0.jar &>logs/configserver_output$$.log &
@@ -48,6 +50,8 @@ kill $GATEWAY_PID
 kill $BOOK_PID
 kill $READER_PID
 kill $APPLICATION_PID
-rm logs/*
+
+echo "Removing log files"
+rm -rf logs
 echo "Done!"
 
