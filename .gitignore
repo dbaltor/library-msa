@@ -1,6 +1,10 @@
+# Gradle
 .gradle
 **/build/
 **/bin/
+
+# Maven
+**/target/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -21,4 +25,8 @@ gradle-app.setting
 .classpath
 
 #Intellij
-.idea
+*.iml
+**/.idea/
+
+#SDKMAN
+.sdkmanrc
